@@ -8,10 +8,20 @@ $c = _isset($_GET, "c");
 $r = ["status" => 0, "msg" => "command not found!"];
 
 switch ($c) {
+    case "get-quiz-question":
+        $course_md5_id = _isset($_GET, "course_md5_id");
+        $data_b64 = _system_read("../data/" . $course_md5_id);
+        if ($data_b64 !== false) {
+            $r["status"] = 1;
+            $r["msg"] = "get quiz question success!";
+            $r["data"]["data_b64"] = $data_b64;
+        } else {
+            $r["msg"] = "get quiz question error, may be quiz not exists.";
+        }
+        break;
     case "push-quiz-question":
         $course_md5_id = _isset($_GET, "course_md5_id");
         $data_b64 = _isset($_POST, "data_b64");
-        $data_b64 = base64_decode($data_b64);
         if (_system_overwrite("../data/" . $course_md5_id, $data_b64)) {
             $r["status"] = 1;
             $r["msg"] = "push quiz question success!";
