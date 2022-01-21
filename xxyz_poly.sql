@@ -72,6 +72,9 @@ CREATE TABLE `tools` (
 --
 -- Indexes for dumped tables
 --
+INSERT INTO `tools` (`id`, `name`, `version`, `status`, `time`) VALUES
+(1, 'fpl@utocms', '4.0.0', 1, 0),
+(2, 'fpl@utolms', '2.0.0', 1, 0);
 
 --
 -- Indexes for table `cms_course`
