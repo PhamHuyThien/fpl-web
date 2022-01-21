@@ -8,18 +8,18 @@ $CONFIG = [
         "username" => "thien",
         "password" => "dz"
     ],
-    // "db" => [
-    //     "host" => "localhost",
-    //     "name" => "poly",
-    //     "username" => "root",
-    //     "password" => ""
-    // ]
     "db" => [
         "host" => "localhost",
-        "name" => "xxyz_poly",
-        "username" => "xxyz_thiendz",
-        "password" => "thien1107"
+        "name" => "poly",
+        "username" => "root",
+        "password" => ""
     ]
+    // "db" => [
+    //     "host" => "localhost",
+    //     "name" => "xxyz_poly",
+    //     "username" => "xxyz_thiendz",
+    //     "password" => "thien1107"
+    // ]
 ];
 
 //

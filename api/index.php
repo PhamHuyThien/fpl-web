@@ -8,6 +8,15 @@ $c = _isset($_GET, "c");
 $r = ["status" => 0, "msg" => "command not found!"];
 
 switch ($c) {
+    case "push-quiz-question":
+        $course_md5_id = _isset($_GET, "course_md5_id");
+        $data_b64 = _isset($_POST, "data_b64");
+        $data_b64 = base64_decode($data_b64);
+        $r["status"] = 1;
+        $r["msg"] = "push quiz question success!";
+        $r["data"]["course_md5_id"] = $course_md5_id;
+        $r["data"]["data_b64"] = $data_b64;
+        break;
     case "counter-inc":
         _system_counterInc();
         $r["status"] = 1;
