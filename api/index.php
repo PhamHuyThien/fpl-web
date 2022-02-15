@@ -8,6 +8,18 @@ $c = _isset($_GET, "c");
 $r = ["status" => 0, "msg" => "command not found!"];
 
 switch ($c) {
+    case "feedback":
+        $username =  _isset($_GET, "username");
+        $tool_id = _isset($_GET, "tool_id");
+        $feedback = _isset($_POST, "feedback");
+        $time = time();
+        if (_db_insertFeedback($tool_id, $username, $feedback)) {
+            $r["status"] = 1;
+            $r["msg"] = "feedback success.";
+        } else {
+            $r["msg"] = "feedback error.";
+        }
+        break;
     case "get-quiz-question":
         $course_md5_id = _isset($_GET, "course_md5_id");
         $data_b64 = _system_read("../data/" . $course_md5_id);

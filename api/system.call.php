@@ -24,7 +24,7 @@ function _system_counterInc()
 }
 
 
-function _system_getCounterDay($day, $month, $path="../log/counter")
+function _system_getCounterDay($day, $month, $path = "../log/counter")
 {
     $path = $path . "/$month";
     if (!file_exists($path)) {
@@ -40,7 +40,7 @@ function _system_getCounterDay($day, $month, $path="../log/counter")
     return (int) $exp[$day - 1];
 }
 
-function _system_getCounterMonth($month, $path="../log/counter")
+function _system_getCounterMonth($month, $path = "../log/counter")
 {
     $path = $path . "/$month";
     if (!file_exists($path)) {
@@ -58,6 +58,17 @@ function _system_getCounterMonth($month, $path="../log/counter")
         $c += (int) $count;
     }
     return $c;
+}
+
+function _system_appendPlus($path, $data)
+{
+    $f = @fopen($path, "a+");
+    if ($f) {
+        $d = @fwrite($f, $data);
+        @fclose($f);
+        return $d;
+    }
+    return false;
 }
 
 function _system_overwrite($path, $data)
@@ -80,6 +91,11 @@ function _system_read($path)
         return $d;
     }
     return false;
+}
+
+function _system_currentDate()
+{
+    return date("Y-m-d H:i:s");
 }
 
 function __system_getLastMonth($month)

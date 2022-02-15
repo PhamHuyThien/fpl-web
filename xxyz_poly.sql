@@ -69,6 +69,15 @@ CREATE TABLE `tools` (
   `time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+create table feedbacks(
+  id int(11) not null primary key AUTO_INCREMENT,
+  tool_id int(11) not null,
+  username varchar(50) not null,
+  text varchar(1000),
+  time int(11),
+  CONSTRAINT FOREIGN KEY (tool_id) REFERENCES tools(id)
+);
+
 --
 -- Indexes for dumped tables
 --
