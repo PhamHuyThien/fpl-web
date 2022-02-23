@@ -1,6 +1,11 @@
 <?php
 include_once "../config/config.php";
 
+function _db_getFeedback($tool_id = null, $order, $order_by, $limit)
+{
+    $sql = "SELECT * FROM feedbacks " . ($tool_id == null ? "" : "WHERE tool_id = $tool_id"). " ORDER BY ($order_by) $order LIMIT $limit;";
+    return _fetchs($sql);
+}
 
 function _db_insertFeedback($tool_id, $username, $text)
 {

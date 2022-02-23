@@ -8,6 +8,15 @@ $c = _isset($_GET, "c");
 $r = ["status" => 0, "msg" => "command not found!"];
 
 switch ($c) {
+    case "get-feedbacks":
+        $tool_id = _isset($_GET, "tool_id", null);
+        $order = _isset($_GET, "order", "DESC");
+        $order_by = _isset($_GET, "order_by", "time");
+        $limit = _isset($_GET, "limit", 10);
+        $r["status"] = 1;
+        $r["msg"] = "success.";
+        $r["data"] = _db_getFeedback($tool_id, $order, $order_by, $limit);
+        break;
     case "feedback":
         $username =  _isset($_GET, "username");
         $tool_id = _isset($_GET, "tool_id");

@@ -18,11 +18,11 @@ $mostRegions = _fetch(sprintf($sql_analysisMostRegion, 1));
 $timeFetchs = _fetchs(sprintf($sql_analysisTimeFetch, 1, 1, 1));
 
 $newUser = $newUsers["username"];
-$newUserTime = date("H:i:s - d/m/Y", $newUsers["time"]);
+$newUserTime = date("H:i:s - d/m/Y", isset($newUsers["time"]) ? $newUsers["time"] : 0);
 
-$countMost = $mostRegions["count"];
-$region = $mostRegions["region"];
-$country = $mostRegions["country"];
+$countMost = isset($mostRegions["count"]) ? $mostRegions["count"] : 0;
+$region = isset($mostRegions["region"]) ? $mostRegions["region"] : "Sao hỏa";
+$country = isset($mostRegions["country"]) ? $mostRegions["country"] : "Sao hỏa";
 
 $timeFirst = 0;
 $timeLast = 0;
@@ -54,10 +54,13 @@ $dayFetch = (int) ($totalSecord / 60 / 60 / 24);
                     <div class="card-block">
                         <div class="md-card-block">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-5">
-                                    <img src="assets/images/app.png" alt="" class="img-fluid">
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="m-auto d-block">
+                                        <img src="assets/images/app.png" alt="" class="img-fluid" style="margin-bottom: 10px;">
+                                    </div>
+
                                 </div>
-                                <div class="col-xs-12 col-sm-7">
+                                <div class="col-xs-12 col-sm-5">
                                     <p class="m-b-20">
                                         <span class="f-w-600 f-16 d-block m-b-10">
                                             FPLAutoCMS là gì?
@@ -107,6 +110,32 @@ $dayFetch = (int) ($totalSecord / 60 / 60 / 24);
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <p class="m-b-20">
+                                        <span class="f-w-600 f-16 d-block m-b-10">
+                                            Phản hồi từ người dùng:
+                                        </span>
+                                    <div>
+                                        <?php
+                                        $sql = "SELECT * FROM feedbacks WHERE tool_id = 1 ORDER BY (time) DESC LIMIT 10";
+                                        $feedbacks = _fetchs($sql);
+                                        foreach ($feedbacks as $fb) {
+                                            $username = $fb["username"];
+                                            $text = $fb["text"];
+                                            $time = date("d/m/Y - H:i:s", $fb["time"]);
+                                        ?>
+                                            <div>
+                                                <span style="color: green">[<?= $time ?>]</span>
+                                                <span style="color: red"><?= $username ?>:</span>
+                                                <span style="color: blue; font-size: 14px"> <?= $text ?></span>
+
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    </p>
                                 </div>
                             </div>
                         </div>
