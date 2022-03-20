@@ -103,7 +103,8 @@ if (_is_admin()) {
                 <ul class="treeview-menu">
                     <li><a class="waves-effect waves-dark" href="cms.php"><i class="icon-arrow-right"></i> Thông tin</a></li>
                     <li><a class="waves-effect waves-dark" href="https://www.youtube.com/watch?v=kJQZ7rn1YXg"><i class="icon-arrow-right"></i> Hướng dẫn dùng</a></li>
-                    <li><a class="waves-effect waves-dark" href="https://github.com/PhamHuyThien/fpl-auto-cms-4"><i class="icon-arrow-right"></i> Mã nguồn & Tải về</a></li>
+                    <li><a class="waves-effect waves-dark" href="https://github.com/PhamHuyThien/fpl-auto-cms-4"><i class="icon-arrow-right"></i> Mã nguồn</a></li>
+                    <li><a class="waves-effect waves-dark" href="https://github.com/PhamHuyThien/fpl-auto-cms-4/releases"><i class="icon-arrow-right"></i> Tải về</a></li>
                 </ul>
             </li>
 
@@ -111,7 +112,8 @@ if (_is_admin()) {
                 <ul class="treeview-menu">
                     <li><a class="waves-effect waves-dark" href="lms.php"><i class="icon-arrow-right"></i> Thông tin</a></li>
                     <li><a class="waves-effect waves-dark" href="https://youtu.be/TYhdLhFD3j8"><i class="icon-arrow-right"></i> Hướng dẫn dùng</a></li>
-                    <li><a class="waves-effect waves-dark" href="https://github.com/PhamHuyThien/fpl-auto-lms-2"><i class="icon-arrow-right"></i> Mã nguồn & Tải về</a></li>
+                    <li><a class="waves-effect waves-dark" href="https://github.com/PhamHuyThien/fpl-auto-lms-2"><i class="icon-arrow-right"></i> Mã nguồn </a></li>
+                    <li><a class="waves-effect waves-dark" href="https://github.com/PhamHuyThien/fpl-auto-lms-2/releases"><i class="icon-arrow-right"></i> Tải về</a></li>
                 </ul>
             </li>
             <?php
